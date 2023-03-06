@@ -1,19 +1,19 @@
-## What is NeurEX?
+## What is NeurAI?
 
-NeurEX is a flexible tool built on top of JAX designed for spiking neural network and machine learning research
+NeurAI is a flexible tool built on top of JAX designed for spiking neural network and machine learning research
 
-Documentation on NeurEX can be found at https://neurex.readthedocs.io/.
+Documentation on NeurAI can be found at https://neurai.readthedocs.io/.
 
 ## How to simulate
 ```python
-import neurex
-from neurex import nn
-import neurex.numpy as nnp
-from neurex.nn.conn import One2One
-from neurex.runner import Runner
+import neurai
+from neurai import nn
+import neurai.numpy as nnp
+from neurai.nn.conn import One2One
+from neurai.runner import Runner
 
 
-class SimNet(neurex.SNet):
+class SimNet(neurai.SNet):
 
   def __init__(self, sim_t: float, dt: float):
     super().__init__(sim_t=sim_t, dt=dt)
@@ -33,16 +33,16 @@ runner.run()
 
 
 ```python
-from neurex.datasets.mnist import MNIST
-from neurex.datasets.dataloader import DataLoader
-from neurex.opt.optimizers import SGD
-from neurex.grad.autograd import BP
-from neurex.nn.layer.loss import softmax_cross_entropy, softmax
-import neurex.numpy as nnp
-from neurex.nn.layer.linear import Linear
-from neurex.nn.module import Module
+from neurai.datasets.mnist import MNIST
+from neurai.datasets.dataloader import DataLoader
+from neurai.opt.optimizers import SGD
+from neurai.grad.autograd import BP
+from neurai.nn.layer.loss import softmax_cross_entropy, softmax
+import neurai.numpy as nnp
+from neurai.nn.layer.linear import Linear
+from neurai.nn.module import Module
 from jax import value_and_grad
-from neurex.nn.layer.activate import Relu
+from neurai.nn.layer.activate import Relu
 
 # downLoad datasets
 train_data = MNIST("./datasets", train=True)
